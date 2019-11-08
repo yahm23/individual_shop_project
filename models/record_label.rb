@@ -11,6 +11,13 @@ class RecordLabel
     @contact_info = options['contact_info']
   end
 
+  def save()
+    sql = "INSERT INTO record_labels (name,contact_info) VALUES ($1,$2) RETURNING id"
+    values = [@name,@contact_info]
+    output = SqlRunner.run(sql,values)[0]
+    @id = output['id'].to_i
+  end
+
 
 
 

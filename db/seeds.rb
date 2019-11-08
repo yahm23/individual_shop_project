@@ -5,3 +5,7 @@ require('pry-byebug')
 
 artist1 = Artist.new({'name'=>'Pink Floyd'})
 artist1.save()
+
+
+record_label1= RecordLabel.new({'name'=> 'Interscope Records', 'contact_info'=>'interscope@info.com'})
+record_label1.save()
