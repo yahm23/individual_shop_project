@@ -19,8 +19,8 @@ CREATE TABLE records(
   name VARCHAR(255),
   description VARCHAR(255),
   genre VARCHAR(255),
-  buy_cost INT4,
-  sell_cost INT4,
+  buy_cost INT8,
+  sell_cost INT8,
   artist_id INT4 REFERENCES artists(id),
   record_label_id INT4 REFERENCES record_labels(id),
   quantity INT4
