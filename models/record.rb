@@ -16,6 +16,13 @@ class Record
     @quantity = options['quantity'].to_i
   end
 
+  def save()
+    sql = "INSERT INTO records (name, description, genre, buy_cost, sell_cost, record_label_id, artist_id, quantity)
+    VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING id"
+    values = [@name, @description, @genre, @buy_cost, @sell_cost, @record_label_id, @artist_id, @quantity]
+    output = SqlRunner.run(sql,values)[0]
+    @id = output['id'].to_i
+  end
 
 
 
