@@ -24,12 +24,24 @@ class Record
     @id = output['id'].to_i
   end
 
+  def quantity_check(num)
+    if @quantity > num
+      return true
+    else
+      return false
+    end
+  end
+
+  def quantity_add(num)\
+    @quantity += num
+  end
+
+
   def self.all
     sql = "SELECT * FROM records;"
     output = SqlRunner.run(sql)
     record_labels = output.map{|label| Record.new(label)}
   end
-
 
   def self.find_by_id(id)
     sql ='SELECT * FROM records WHERE id =$1;'
@@ -48,10 +60,5 @@ class Record
     values=[id]
     output = SqlRunner.run(sql,values)
   end
-
-
-
-
-
 
 end
