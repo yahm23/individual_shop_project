@@ -3,6 +3,12 @@ require_relative( '../models/record_label.rb' )
 require_relative( '../models/record.rb' )
 require('pry-byebug')
 
+Record.delete_all()
+Artist.delete_all()
+RecordLabel.delete_all()
+
+
+
 artist1 = Artist.new({'name'=>'Pink Floyd'})
 artist2 = Artist.new({'name'=>'Kendrick Lamar'})
 artist1.save()

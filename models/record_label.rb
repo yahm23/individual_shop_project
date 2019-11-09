@@ -33,6 +33,11 @@ class RecordLabel
     return label
   end
 
+  def self.delete_all
+    sql = "DELETE FROM record_labels"
+    SqlRunner.run(sql)
+  end
+
 
 
 

@@ -29,6 +29,11 @@ attr_accessor :name
     return Artist.new(artist)
   end
 
+  def self.delete_all
+    sql = "DELETE FROM artists"
+    SqlRunner.run(sql)
+  end
+
 
 
 end
