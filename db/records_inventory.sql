@@ -21,7 +21,7 @@ CREATE TABLE records(
   genre VARCHAR(255),
   buy_cost INT8,
   sell_cost INT8,
-  artist_id INT4 REFERENCES artists(id),
-  record_label_id INT4 REFERENCES record_labels(id),
+  artist_id INT4,
+  record_label_id INT4,
   quantity INT4
 );

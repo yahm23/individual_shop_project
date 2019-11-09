@@ -34,6 +34,11 @@ attr_accessor :name
     SqlRunner.run(sql)
   end
 
+  def self.delete(id)
+    sql = "DELETE FROM artists WHERE id = $1"
+    values=[id]
+    output = SqlRunner.run(sql,values)
+  end
 
 
 end
