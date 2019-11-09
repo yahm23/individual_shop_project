@@ -19,6 +19,14 @@ class RecordLabel
   end
 
 
+  def self.all
+    sql = "SELECT * FROM record_labels"
+    output = SqlRunner.run(sql)
+    record_labels = output.map{|label| RecordLabel.new(label)}
+  end
+
+
+
 
 
 
