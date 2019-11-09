@@ -16,6 +16,13 @@ attr_accessor :name
     @id = output['id'].to_i
   end
 
+  def records()
+    sql = "SELECT * FROM records WHERE artist_id = $1"
+    value = [@id]
+    output = SqlRunner.run(sql,value)
+    return output.map{|record| Record.new(record)}
+  end
+
   def self.all
     sql = "SELECT * FROM artists"
     output = SqlRunner.run(sql)
