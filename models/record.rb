@@ -24,7 +24,19 @@ class Record
     @id = output['id'].to_i
   end
 
+  def self.all
+    sql = "SELECT * FROM record_labels;"
+    output = SqlRunner.run(sql)
+    record_labels = output.map{|label| RecordLabel.new(label)}
+  end
 
+
+  def self.find_by_id(id)
+    sql ='SELECT * FROM record_labels WHERE id =$1;'
+    values= [id]
+    label = RecordLabel.new(SqlRunner.run(sql,values)[0])
+    return label
+  end
 
 
 
