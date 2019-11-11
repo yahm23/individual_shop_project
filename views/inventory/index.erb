@@ -7,5 +7,9 @@
 <ul>
   <% for record in @records %>
   <p>-<%= record.name %> with a quantity of <%= record.quantity %></p>
+
+  <form action="/inventory/<%= record.id %>/delete" method="post">
+    <input type="submit" value="Delete"/>
+  </form>
   <p><% end %></p>
 </ul>

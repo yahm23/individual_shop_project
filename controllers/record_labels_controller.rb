@@ -21,6 +21,10 @@ get '/record_labels/:id' do
   erb (:'record_labels/show')
 end
 
+post '/record_labels/:id/delete' do
+  RecordLabel.delete(params[:id])
+  redirect to ('/record_labels')
+end
 
 post '/record_labels' do
   label1 = RecordLabel.new(params)

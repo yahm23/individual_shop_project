@@ -1,4 +1,5 @@
 require_relative( '../db/sql_runner' )
+require('pry-byebug')
 
 class RecordLabel
   attr_reader :id
@@ -45,6 +46,7 @@ class RecordLabel
   end
 
   def self.delete(id)
+    binding.pry
     sql = "DELETE FROM record_labels WHERE id = $1"
     values=[id]
     output = SqlRunner.run(sql,values)

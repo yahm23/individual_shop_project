@@ -23,3 +23,8 @@ post '/inventory' do
   record.save()
   redirect to ('/inventory')
 end
+
+post '/inventory/:id/delete' do
+  Record.delete(params[:id].to_i)
+  redirect to ('/inventory')
+end
