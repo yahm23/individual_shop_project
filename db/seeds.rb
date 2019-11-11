@@ -22,7 +22,7 @@ record_label2= RecordLabel.new({'name'=> 'Columbia Records', 'contact_info'=>'co
 record_label2.save()
 
 
-record1 = Record.new({'name'=>'Wish You Were Here', 'description'=> 'Wish You Were Here is the 9th studio album by the English rock band Pink Floyd', 'genre'=> 'Rock', 'buy_cost'=>20000 , 'sell_cost' => 28000, 'record_label_id' => record_label2.id, 'artist_id'=> artist1.id, 'quantity' => 10})
+record1 = Record.new({'name'=>'Wish You Were Here', 'description'=> 'The 9th studio album by the English rock band Pink Floyd', 'genre'=> 'Rock', 'buy_cost'=>20000 , 'sell_cost' => 28000, 'record_label_id' => record_label2.id, 'artist_id'=> artist1.id, 'quantity' => 10})
 record1.save()
 
 record2 = Record.new({'name'=>'DAMN.', 'description'=> 'DAMN. is the 4th studio album by Compton rapper Kendrick Lamar', 'genre'=> 'Hip-Hop', 'buy_cost'=>15000 , 'sell_cost' => 25000, 'record_label_id' =>record_label1.id , 'artist_id'=>artist2.id , 'quantity' => 15})
