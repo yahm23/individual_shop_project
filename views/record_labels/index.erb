@@ -3,15 +3,18 @@
 <body>
   <br>
   <br>
-
+<p>Click Label to see records in stock</p>
 <ul>
   <% for label in @record_labels %>
-  <a href="/record_labels/<%=label.id%>"><%= label.name %></a> <p>click to see records in stock</p>
+  -<a href="/record_labels/<%=label.id%>"><%= label.name %></a>
+  <form action="/record_labels/<%= label.id %>/delete" method="post">
+    <input type="submit" value="Delete"/>
+  </form>
   <p><% end %></p>
 </ul>
 
 <br>
 <br>
 
-  <a class="" href="/record_labels/new">Add Record Label</a>  
+  <a class="" href="/record_labels/new">Add Record Label</a>
 </body>

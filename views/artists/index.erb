@@ -3,7 +3,10 @@
 <body>
   <ul>
     <% for artist in @artists %>
-    <a href="/artists/<%=artist.id%>"><%= artist.name %></a> click to see records in stock</p>
+    <a href="/artists/<%=artist.id%>"><%= artist.name %></a>
+    <form action="/artists/<%= artist.id %>/delete" method="post">
+      <input type="submit" value="Delete"/>
+    </form>
     <p><% end %></p>
   </ul>
 

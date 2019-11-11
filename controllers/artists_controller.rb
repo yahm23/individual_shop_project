@@ -27,3 +27,8 @@ post '/artists' do
   artist.save()
   redirect to ('/artists')
 end
+
+post '/artists/:id/delete' do
+  Artist.delete(params[:id])
+  redirect to ('/artists')
+end
