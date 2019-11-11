@@ -10,7 +10,6 @@
 
   <label>
     Enter new or existing record label
-      <input type="text" list="Record Labels" />
       <select name= "record_label_id" id="rec_labels">
         <% for label in @record_labels %>
           <option value="<%=label.id%>"><%= label.name %></option>
@@ -20,12 +19,33 @@
 
   <label>
     Enter new or existing Artist
-      <input type="text" list="Artist" />
       <select name= "artist_id" id="artists">
         <% for artist in @artists %>
           <option value="<%=artist.id%>"><%= artist.name %></option>
         <% end %>
       </select>
+  </label>
+
+  <label for="description">Description:
+    <textarea name="message" rows="-10" cols="-30">Enter Description here.</textarea>
+    <br>
+  </label>
+
+
+  <label for="genre">Genre:
+    <input type="text" name="genre" id="genre"/>
+  </label>
+
+  <label for="buy_cost">Buy Cost:
+    <input type="text" name="buy_cost" id="buy_cost"/>
+  </label>
+
+  <label for="sell_cost">Sell Cost:
+    <input type="text" name="sell_cost" id="sell_cost"/>
+  </label>
+
+  <label for="quantity">Quantity:
+    <input type="text" name="quantity" id="quantity"/>
   </label>
 
   <input class="" type='submit' value="Create">

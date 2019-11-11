@@ -17,3 +17,9 @@ get '/inventory/new' do
   @artists = Artist.all
   erb(:'inventory/new')
 end
+
+post '/inventory' do
+  record = Record.new(params)
+  record.save()
+  redirect to ('/inventory')
+end
