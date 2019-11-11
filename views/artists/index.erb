@@ -1,7 +1,5 @@
 <ul>
   <% for artist in @artists %>
-  <p><%= artist.name %> with these records in stock:</p> <ul>
-    <%= artist.records.name%>
-  </ul>
+  <a href="/artists/<%=artist.id%>"><%= artist.name %></a> click to see records in stock</p>
   <p><% end %></p>
 </ul>
