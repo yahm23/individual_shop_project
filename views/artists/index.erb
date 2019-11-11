@@ -1,0 +1,7 @@
+<ul>
+  <% for artist in @artists %>
+  <p><%= artist.name %> with these records in stock:</p> <ul>
+    <%= artist.records.name%>
+  </ul>
+  <p><% end %></p>
+</ul>
