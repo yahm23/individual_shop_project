@@ -1,0 +1,51 @@
+<h1>Edit <%= @record.name %></h1>
+
+<form action="/inventory/<%=@record.id%>" method="post">
+  <label for = "name">
+    Enter record name:
+      <input type="text" name= "name" id="name" value="<%=@record.name %>"/>
+  </label>
+
+  <label>
+    Change Record Label
+      <select name= "record_label_id" id="rec_labels">
+        <% for label in @record_labels %>
+          <option value="<%=label.id%>"><%= label.name %></option>
+        <% end %>
+      </select>
+  </label>
+
+  <label>
+    Change Artist
+      <select name= "artist_id" id="artists">
+        <% for artist in @artists %>
+          <option value="<%=artist.id%>"><%= artist.name %></option>
+        <% end %>
+      </select>
+  </label>
+
+  <label for="description">Description:
+    <textarea name="message" rows="-10" cols="-30"><%= @record.description %></textarea>
+    <br>
+  </label>
+
+
+  <label for="genre">Genre:
+    <input value="<%= @record.genre %>" type="text" name="genre" id="genre"/>
+  </label>
+
+  <label for="buy_cost">Buy Cost:
+    <input value="<%= @record.buy_cost %>" type="text" name="buy_cost" id="buy_cost"/>
+  </label>
+
+  <label for="sell_cost">Sell Cost:
+    <input value="<%= @record.sell_cost %>" type="text" name="sell_cost" id="sell_cost"/>
+  </label>
+
+  <label for="quantity">Quantity:
+    <input value="<%= @record.quantity%>" type="text" name="quantity" id="quantity"/>
+  </label>
+
+  <input class="" type='submit' value="Change">
+
+</form>

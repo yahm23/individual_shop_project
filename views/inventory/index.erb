@@ -15,6 +15,7 @@
       <th> Record Label </th>
       <th> Artist </th>
       <th> Quantity </th>
+      <th> Edit </th>
       <th> Delete </th>
       <tbody>
         <% for record in @records %>
@@ -40,6 +41,10 @@
           </td>
 
           <td><%= record.quantity %></td>
+
+          <td><form action="/inventory/<%= record.id %>/edit" method="post">
+            <input type="submit" value="Edit"/>
+          </form></td>
 
           <td><form action="/inventory/<%= record.id %>/delete" method="post">
             <input type="submit" value="Delete"/>

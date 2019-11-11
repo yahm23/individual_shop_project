@@ -24,6 +24,14 @@ class Record
     @id = output['id'].to_i
   end
 
+  def update()
+    sql = "UPDATE records SET (name, description, genre, buy_cost, sell_cost, record_label_id, artist_id, quantity)= ($1,$2,$3,$4,$5,$6,$7,$8) WHERE id = $9"
+    values = [@name, @description, @genre, @buy_cost, @sell_cost, @record_label_id, @artist_id, @quantity, @id]
+    SqlRunner.run(sql,values)
+
+  end
+
+
   def quantity_check(num)
     if @quantity > num
       return true
