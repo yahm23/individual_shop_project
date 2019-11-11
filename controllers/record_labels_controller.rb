@@ -10,9 +10,19 @@ get '/record_labels' do
   erb (:'record_labels/index')
 end
 
+get '/record_labels/new'do
+  erb(:'record_labels/new')
+end
 
 get '/record_labels/:id' do
   @record_label = RecordLabel.find_by_id(params['id'].to_i)
   @records = @record_label.records()
   erb (:'record_labels/show')
+end
+
+
+post '/record_labels' do
+  label1 = RecordLabel.new(params)
+  label1.save()
+  redirect to ('/record_labels')
 end

@@ -1,8 +1,17 @@
 <h1>Record Labels</h1>
 
+<body>
+  <br>
+  <br>
 
 <ul>
   <% for label in @record_labels %>
   <a href="/record_labels/<%=label.id%>"><%= label.name %></a> <p>click to see records in stock</p>
   <p><% end %></p>
 </ul>
+
+<br>
+<br>
+
+  <a class="" href="/record_labels/new">Add Record Label</a>  
+</body>

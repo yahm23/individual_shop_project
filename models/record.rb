@@ -46,8 +46,8 @@ class Record
   def self.find_by_id(id)
     sql ='SELECT * FROM records WHERE id =$1;'
     values= [id]
-    label = Record.new(SqlRunner.run(sql,values)[0])
-    return label
+    record = Record.new(SqlRunner.run(sql,values)[0])
+    return record
   end
 
   def self.delete_all
