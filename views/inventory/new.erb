@@ -1,0 +1,33 @@
+<h1>Create New Record</h1>
+
+
+<form action="/inventory" method="post">
+
+  <label for = "name">
+    Enter record name:
+      <input type="text" name= "name" id="name"/>
+  </label>
+
+  <label>
+    Enter new or existing record label
+      <input type="text" list="Record Labels" />
+      <select name= "record_label_id" id="rec_labels">
+        <% for label in @record_labels %>
+          <option value="<%=label.id%>"><%= label.name %></option>
+        <% end %>
+      </select>
+  </label>
+
+  <label>
+    Enter new or existing Artist
+      <input type="text" list="Artist" />
+      <select name= "artist_id" id="artists">
+        <% for artist in @artists %>
+          <option value="<%=artist.id%>"><%= artist.name %></option>
+        <% end %>
+      </select>
+  </label>
+
+  <input class="" type='submit' value="Create">
+
+</form>

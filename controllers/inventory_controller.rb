@@ -11,3 +11,9 @@ get '/inventory' do
   @records = Record.all
   erb (:"inventory/index")
 end
+
+get '/inventory/new' do
+  @record_labels = RecordLabel.all
+  @artists = Artist.all
+  erb(:'inventory/new')
+end
