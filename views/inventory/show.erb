@@ -1,0 +1,52 @@
+<ul>
+  <table>
+    <tr>
+      <th> Record Name </th>
+      <th> Description </th>
+      <th> Genre </th>
+      <th> Buy Cost </th>
+      <th> Sell Cost </th>
+      <th> Record Label </th>
+      <th> Artist </th>
+      <th> Quantity </th>
+      <th> Edit </th>
+      <th> Delete </th>
+      <tbody>
+
+        <tr>
+          <td><%= @record.name %></td>
+
+          <td><%= @record.description %></td>
+
+          <td><%= @record.genre %></td>
+
+          <td><%= @record.buy_cost %></td>
+
+          <td><%= @record.sell_cost %></td>
+
+          <td><% id = @record.record_label_id %>
+              <% label= RecordLabel.find_by_id(id) %>
+              <%= label.name %>
+          </td>
+
+          <td><% id = @record.artist_id %>
+              <% artist= Artist.find_by_id(id) %>
+              <%= artist.name %>
+          </td>
+
+          <td><%= @record.quantity %></td>
+
+          <td><form action="/inventory/<%= @record.id %>/edit" method="post">
+            <input type="submit" value="Edit"/>
+          </form></td>
+
+          <td><form action="/inventory/<%= @record.id %>/delete" method="post">
+            <input type="submit" value="Delete"/>
+          </form></td>
+
+        </tr>
+
+      </tbody>
+
+    </tr>
+  </table>
