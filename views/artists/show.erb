@@ -1,8 +1,10 @@
-<ul>
-  <%= @artist.name %>'s Records:
+
+<h1><%= @artist.name %>'s Records:</h1>
+<body>
   <ul>
     <% for record in @records %>
+    <p><%= record.name %>, with a stock quantity of <%= record.quantity %></p>
+    <% end %>
   </ul>
-  <p><%= record.name %>, with a stock quantity of <%= record.quantity %></p>
-  <% end %>
-</ul>
+
+</body>
