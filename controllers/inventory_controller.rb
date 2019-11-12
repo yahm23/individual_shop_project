@@ -37,6 +37,8 @@ post '/inventory/:id/delete' do
 end
 
 post '/inventory/:id' do
+  params[:buy_cost] = 100*params[:buy_cost].to_i 
+  params[:sell_cost] = 100*params[:sell_cost].to_i
   rec = Record.new(params)
   rec.update
   redirect to "/inventory"

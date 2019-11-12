@@ -35,11 +35,11 @@
   </label>
 
   <label for="buy_cost">Buy Cost:
-    <input value="<%= @record.buy_cost %>" type="text" name="buy_cost" id="buy_cost"/>
+    <input value="<%= @record.buy_cost/100 %>" type="text" name="buy_cost" id="buy_cost"/>
   </label>
 
   <label for="sell_cost">Sell Cost:
-    <input value="<%= @record.sell_cost %>" type="text" name="sell_cost" id="sell_cost"/>
+    <input value="<%= @record.sell_cost/100 %>" type="text" name="sell_cost" id="sell_cost"/>
   </label>
 
   <label for="quantity">Quantity:
