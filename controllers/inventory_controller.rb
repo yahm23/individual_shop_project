@@ -39,7 +39,7 @@ end
 post '/inventory/:id' do
   rec = Record.new(params)
   rec.update
-  redirect to "/inventory/#{params['id']}"
+  redirect to "/inventory"
 end
 
 post '/inventory/:id/edit' do
