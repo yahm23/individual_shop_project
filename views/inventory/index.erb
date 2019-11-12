@@ -23,10 +23,11 @@
 
           <td><%= record.genre %></td>
 
-          <td><%= record.buy_cost %></td>
+          <td><% cost1 = record.buy_cost %>
+          <%= cost1/100 %></td>
 
-          <td><%= record.sell_cost %></td>
-
+          <td><% cost2 = record.sell_cost %>
+            <%= cost2/100 %></td>
 
           <td><% id = record.record_label_id %>
               <% x = 0 %>
