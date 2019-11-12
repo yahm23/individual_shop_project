@@ -36,13 +36,14 @@
 
 
   <ul>
-    <table>
+    <table class="center">
       <tr>
         <th> Record Name </th>
         <th> Description </th>
         <th> Genre </th>
         <th> Buy Cost </th>
         <th> Sell Cost </th>
+        <th> Markup </th>
         <th> Record Label </th>
         <th> Artist </th>
         <th> Quantity </th>
@@ -63,6 +64,16 @@
 
               <td><% cost2 = record.sell_cost %>
                 <%= cost2/100 %></td>
+
+              <td><% cost1 = record.buy_cost%>
+                <% cost2 = record.sell_cost %>
+                <% profit = (cost2 - cost1).to_f%>
+                <% markup = profit/cost1%>
+                <% final = markup * 100%>
+                <%=final.round(2)%>
+                <%= "%" %>
+              </td>
+
 
               <td><% id = record.record_label_id %>
                   <% x = 0 %>
@@ -93,9 +104,9 @@
               </td>
 
               <td <% if record.quantity < 5 %>
-                    <%="bgcolor= red"%>
+                    <%="bgcolor= #F36B6B"%>
                   <% else %>
-                  <%= "bgcolor= green" %>
+                  <%= "bgcolor= #DAF7A6" %>
                   <% end %>>
                 <%= record.quantity %>
               </td>
