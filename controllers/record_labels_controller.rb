@@ -17,7 +17,7 @@ end
 get '/record_labels/:id' do
   @record_label = RecordLabel.find_by_id(params['id'].to_i)
   @records = @record_label.records()
-  @mssg = "No Records for this label"
+  # @mssg = "No Records for this label"
   erb (:'record_labels/show')
 end
 

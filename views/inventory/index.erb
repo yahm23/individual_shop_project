@@ -27,17 +27,40 @@
 
           <td><%= record.sell_cost %></td>
 
+
           <td><% id = record.record_label_id %>
-              <% label= RecordLabel.find_by_id(id) %>
-              <%= label.name %>
+              <% x = 0 %>
+              <% for value in @record_label_ids%>
+                <% if value == id %>
+                  <% label= RecordLabel.find_by_id(id) %>
+                  <% x= 1 %>
+                  <%= label.name %>
+                <% end %>
+              <% end %>
+              <% if x == 0 %>
+                <%="No record label assigned"%>
+              <% end %>
           </td>
 
           <td><% id = record.artist_id %>
-              <% artist= Artist.find_by_id(id) %>
-              <%= artist.name %>
+            <% x = 0 %>
+            <% for value in @artist_ids%>
+              <% if value == id %>
+                <% artist= Artist.find_by_id(id) %>
+                <% x= 1 %>
+                <%= artist.name %>
+              <% end %>
+            <% end %>
+            <% if x == 0 %>
+              <%="No Artist assigned"%>
+            <% end %>
           </td>
 
-          <td><%= record.quantity %></td>
+          <td <% if record.quantity < 5 %>
+                <%="bgcolor= red"%>
+              <% end %>>
+            <%= record.quantity %>
+          </td>
 
           <td><form action="/inventory/<%= record.id %>/edit" method="post">
             <input type="submit" value="Edit"/>

@@ -9,6 +9,8 @@ also_reload( '../models/*' )
 
 get '/inventory' do
   @records = Record.all
+  @record_label_ids = RecordLabel.all.map { |label|  label.id}
+  @artist_ids = Artist.all.map { |artist|  artist.id}
   erb (:"inventory/index")
 end
 
