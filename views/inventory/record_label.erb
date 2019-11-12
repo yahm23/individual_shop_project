@@ -49,66 +49,68 @@
         <th> Delete </th>
         <tbody>
           <% for record in @records %>
-          <tr>
-            <td><%= record.name %></td>
+            <% if record.record_label_id.to_i == @label_id %>
+            <tr>
+              <td><%= record.name %></td>
 
-            <td><%= record.description %></td>
+              <td><%= record.description %></td>
 
-            <td><%= record.genre %></td>
+              <td><%= record.genre %></td>
 
-            <td><% cost1 = record.buy_cost %>
-            <%= cost1/100 %></td>
+              <td><% cost1 = record.buy_cost %>
+              <%= cost1/100 %></td>
 
-            <td><% cost2 = record.sell_cost %>
-              <%= cost2/100 %></td>
+              <td><% cost2 = record.sell_cost %>
+                <%= cost2/100 %></td>
 
-            <td><% id = record.record_label_id %>
+              <td><% id = record.record_label_id %>
+                  <% x = 0 %>
+                  <% for value in @record_label_ids%>
+                    <% if value == id %>
+                      <% label= RecordLabel.find_by_id(id) %>
+                      <% x= 1 %>
+                      <%= label.name %>
+                    <% end %>
+                  <% end %>
+                  <% if x == 0 %>
+                    <%="No record label assigned"%>
+                  <% end %>
+              </td>
+
+              <td><% id = record.artist_id %>
                 <% x = 0 %>
-                <% for value in @record_label_ids%>
+                <% for value in @artist_ids%>
                   <% if value == id %>
-                    <% label= RecordLabel.find_by_id(id) %>
+                    <% artist= Artist.find_by_id(id) %>
                     <% x= 1 %>
-                    <%= label.name %>
+                    <%= artist.name %>
                   <% end %>
                 <% end %>
                 <% if x == 0 %>
-                  <%="No record label assigned"%>
+                  <%="No Artist assigned"%>
                 <% end %>
-            </td>
+              </td>
 
-            <td><% id = record.artist_id %>
-              <% x = 0 %>
-              <% for value in @artist_ids%>
-                <% if value == id %>
-                  <% artist= Artist.find_by_id(id) %>
-                  <% x= 1 %>
-                  <%= artist.name %>
-                <% end %>
-              <% end %>
-              <% if x == 0 %>
-                <%="No Artist assigned"%>
-              <% end %>
-            </td>
+              <td <% if record.quantity < 5 %>
+                    <%="bgcolor= red"%>
+                  <% else %>
+                  <%= "bgcolor= green" %>
+                  <% end %>>
+                <%= record.quantity %>
+              </td>
 
-            <td <% if record.quantity < 5 %>
-                  <%="bgcolor= red"%>
-                <% else %>
-                <%= "bgcolor= green" %>
-                <% end %>>
-              <%= record.quantity %>
-            </td>
+              <td><form action="/inventory/<%= record.id %>/edit" method="post">
+                <input type="submit" value="Edit"/>
+              </form></td>
 
-            <td><form action="/inventory/<%= record.id %>/edit" method="post">
-              <input type="submit" value="Edit"/>
-            </form></td>
+              <td><form action="/inventory/<%= record.id %>/delete" method="post">
+                <input type="submit" value="Delete"/>
+              </form></td>
 
-            <td><form action="/inventory/<%= record.id %>/delete" method="post">
-              <input type="submit" value="Delete"/>
-            </form></td>
-
-          </tr>
+            </tr>
 
           <p><% end %></p>
+          <% end %>
         </tbody>
 
       </tr>
