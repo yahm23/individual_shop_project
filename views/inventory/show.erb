@@ -1,3 +1,6 @@
+<h1> <%=@record.name%></h1>
+
+
 <ul>
   <table class="center">
     <tr>
@@ -20,9 +23,11 @@
 
           <td><%= @record.genre %></td>
 
-          <td><%= @record.buy_cost %></td>
+          <td><% cost1 = @record.buy_cost %>
+          <%= "£#{cost1/100}" %></td>
 
-          <td><%= @record.sell_cost %></td>
+          <td><%cost2 = @record.sell_cost %>
+          <%= "£#{cost2/100}" %></td>
 
           <td><% id = @record.record_label_id %>
               <% label= RecordLabel.find_by_id(id) %>
@@ -34,7 +39,13 @@
               <%= artist.name %>
           </td>
 
-          <td><%= @record.quantity %></td>
+          <td <% if @record.quantity < 5 %>
+                <%="bgcolor= #F36B6B"%>
+              <% else %>
+              <%= "bgcolor= #DAF7A6" %>
+              <% end %>>
+              <%= @record.quantity %>
+          </td>
 
           <td><form action="/inventory/<%= @record.id %>/edit" method="post">
             <input type="submit" value="Edit"/>

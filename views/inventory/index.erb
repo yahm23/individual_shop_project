@@ -4,7 +4,8 @@
 <body>
 
   <form class="" action="/inventory/quantity_thresh" method="post">
-    <label for="quantity_thresh">Set Quantity Warning Threshold:
+    <label for="quantity_thresh">
+      <p1>Set Quantity Warning Threshold:</p1>
       <input type="text" name="quantity_thresh" id="quantity_thresh"/>
     </label>
     <input class="" type='submit' value="Change">
@@ -12,7 +13,7 @@
 
   <form class="" action="/inventory/record_label" method="post">
     <label>
-      Filter by Record Label:
+      <p1>Filter by Record Label:</p1>
         <select name= "record_label_id" id="rec_labels">
           <% for label in @record_labels %>
             <option value="<%=label.id%>"><%= label.name %></option>
@@ -24,7 +25,7 @@
 
   <form class="" action="/inventory/artist" method="post">
     <label>
-      Filter by Artist:
+      <p1>Filter by Artist:</p1>
       <select name= "artist_id" id="artists">
         <% for artist in @artists %>
           <option value="<%=artist.id%>"><%= artist.name %></option>
@@ -51,17 +52,17 @@
         <tbody>
           <% for record in @records %>
           <tr>
-            <td><%= record.name %></td>
+            <td><a href="/inventory/<%= record.id %>"><%= record.name %></a></td>
 
             <td><%= record.description %></td>
 
             <td><%= record.genre %></td>
 
             <td><% cost1 = record.buy_cost %>
-            <%= cost1/100 %></td>
+            <%= "£#{cost1/100}"%></td>
 
             <td><% cost2 = record.sell_cost %>
-              <%= cost2/100 %></td>
+              <%= "£#{cost2/100}" %></td>
 
             <td><% cost1 = record.buy_cost%>
               <% cost2 = record.sell_cost %>

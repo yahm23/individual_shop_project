@@ -14,6 +14,7 @@ get '/record_labels/new'do
   erb(:'record_labels/new')
 end
 
+
 get '/record_labels/:id' do
   @record_label = RecordLabel.find_by_id(params['id'].to_i)
   @records = @record_label.records()
@@ -26,8 +27,20 @@ post '/record_labels/:id/delete' do
   redirect to ('/record_labels')
 end
 
+get '/record_labels/:id/edit' do
+  @record_label = RecordLabel.find_by_id(params['id'])
+  erb (:'/record_labels/edit')
+end
+
+
 post '/record_labels' do
   label1 = RecordLabel.new(params)
   label1.save()
   redirect to ('/record_labels')
+end
+
+post '/record_labels/:id' do
+  rec = RecordLabel.new(params)
+  rec.update()
+  redirect to "/record_labels"
 end

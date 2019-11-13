@@ -19,6 +19,13 @@ class RecordLabel
     @id = output['id'].to_i
   end
 
+  def update()
+    sql = "UPDATE record_labels SET (name, contact_info)= ($1,$2) WHERE id = $3;"
+    values = [@name, @contact_info, @id]
+    SqlRunner.run(sql,values)
+  end
+
+
   def records()
     sql = "SELECT * FROM records WHERE record_label_id = $1"
     value = [@id]

@@ -1,14 +1,19 @@
 <h1>Artists</h1>
 
 <body>
+  <br>
+  <br>
+  <p>Click Artist to see records in stock</p>
+  <p>
   <ul>
     <% for artist in @artists %>
     <a href="/artists/<%=artist.id%>"><%= artist.name %></a>
     <form action="/artists/<%= artist.id %>/delete" method="post">
       <input type="submit" value="Delete"/>
     </form>
-    <p><% end %></p>
+    <% end %>
   </ul>
+  </p>
 
   <a class="" href="/artists/new">Add New Artist</a>
 </body>

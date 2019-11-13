@@ -1,10 +1,9 @@
 <ul>
-  <%= @record_label.name %>:
+  <h1><%= @record_label.name %>:</h1>
   <ul>
     <% for record in @records %>
   </ul>
   <p>-<%= record.name %>, with a stock quantity of <%= record.quantity %></p>
   <% end %>
-
 
 </ul>

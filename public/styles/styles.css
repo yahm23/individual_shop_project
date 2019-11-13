@@ -1,7 +1,6 @@
 ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
+  text-align: center;
 }
 
 li {
@@ -17,12 +16,37 @@ text-align: center;
 background-color: beige ;
 }
 
+p {font-family: 'Roboto Slab';
+text-align: center;}
+
+p1 {font-family: 'Roboto Slab';
+text-align: center;}
+
+
+a, a:link, a:visited {font-family: 'Roboto Slab';
+text-align: center;
+text-decoration: none;
+}
+
+a:hover {
+  color:red;
+}
+
+form{
+  font-family: 'Roboto Slab';
+  text-align: center;
+}
+
 td {font-family: 'Barlow Condensed', sans-serif;
 text-align: center;}
 
 table.center {
   margin-left:auto;
   margin-right:auto;
+}
+
+div1 {
+  
 }
 
 table, th, td {

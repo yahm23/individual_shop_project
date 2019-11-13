@@ -1,0 +1,17 @@
+<h1> Edit <%=@record_label.name%></h1>
+
+<form action="/record_labels/<%=@record_label.id %>" method="post">
+
+  <label for="name">
+    Change Label name:
+    <input type="text" name="name" value = "<%=@record_label.name %>"/>
+  </label>
+
+  <label for="contact_info">
+    Change contact information:
+    <input type="text" name="contact_info" value = "<%=@record_label.contact_info %>"/>
+  </label>
+
+<input class="" type='submit' value="Change">
+
+</form>
