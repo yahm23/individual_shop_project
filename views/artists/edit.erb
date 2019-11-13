@@ -1,0 +1,13 @@
+<h1> Edit <%=@artist.name%></h1>
+
+<form action="/artists/<%=@artist.id %>" method="post">
+
+  <label for="name">
+    Change Artist name:
+    <input type="text" name="name" value = "<%=@artist.name %>"/>
+  </label>
+
+
+<input class="" type='submit' value="Change">
+
+</form>

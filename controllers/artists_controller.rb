@@ -22,13 +22,31 @@ get '/artists/:id' do
   erb (:'artists/show')
 end
 
+post '/artists/:id/delete' do
+  Artist.delete(params[:id])
+  redirect to ('/artists')
+end
+
+get '/artists/:id/edit' do
+  @artist = Artist.find_by_id(params['id'])
+  erb (:'/artists/edit')
+end
+
+post '/artists/:id/edit' do
+  @artist = Artist.find_by_id(params['id'])
+  erb (:'/artists/edit')
+end
+
+
 post '/artists' do
   artist = Artist.new(params)
   artist.save()
   redirect to ('/artists')
 end
 
-post '/artists/:id/delete' do
-  Artist.delete(params[:id])
-  redirect to ('/artists')
+
+post '/artists/:id' do
+  artist = Artist.new(params)
+  artist.update()
+  redirect to "/artists"
 end

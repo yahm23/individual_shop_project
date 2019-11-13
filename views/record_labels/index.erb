@@ -4,21 +4,47 @@
   <br>
   <br>
 <p>Click Label to see records in stock</p>
-<ul>
-  <% for label in @record_labels %>
-  -<a href="/record_labels/<%=label.id%>"><%= label.name %></a>
-  <form action="/record_labels/<%= label.id %>/delete" method="post">
-    <input type="submit" value="Delete"/>
-  </form>
-  <form action="/record_labels/<%= label.id %>/edit">
-    <input type="submit" value="Edit"/>
-  </form>
-  <% end %>
 
-</ul>
+<table class="center">
+  <tr>
+    <th> Name </th>
+    <th> Contact Info </th>
+    <th> Edit </th>
+    <th> Delete </th>
+    <tbody>
+      <% for label in @record_labels %>
+      <tr>
+        <td><a href="/record_labels/<%=label.id%>"><%= label.name %></a>
+        </td>
+
+        <td>
+          <%= label.contact_info %>
+        </td>
+
+        <td>
+          <form action="/record_labels/<%= label.id %>/edit">
+            <input type="submit" value="Edit"/>
+          </form>
+        </td>
+
+        <td>
+          <form action="/record_labels/<%= label.id %>/delete" method="post">
+            <input type="submit" value="Delete"/>
+          </form>
+        </td>
+
+      </tr>
+
+      <p><% end %></p>
+    </tbody>
+
+  </tr>
+</table>
+
+
 
 <br>
 <br>
 
-  <a class="" href="/record_labels/new">Add Record Label</a>
+  <a1 class="" href="/record_labels/new">Add Record Label</>
 </body>

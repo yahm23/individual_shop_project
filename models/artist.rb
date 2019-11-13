@@ -16,6 +16,12 @@ attr_accessor :name
     @id = output['id'].to_i
   end
 
+  def update()
+    sql = "UPDATE artists SET name= $1 WHERE id = $2;"
+    values = [@name, @id]
+    SqlRunner.run(sql,values)
+  end
+
   def records()
     sql = "SELECT * FROM records WHERE artist_id = $1"
     value = [@id]
