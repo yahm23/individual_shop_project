@@ -1,4 +1,4 @@
-# First individual project
+# Individual project
 using: Ruby, HTML, CSS, SQL, Sinatra
 
 Shop inventory solo project.
